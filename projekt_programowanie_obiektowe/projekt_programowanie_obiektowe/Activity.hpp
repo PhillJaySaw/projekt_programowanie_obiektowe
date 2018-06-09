@@ -33,10 +33,10 @@ public:
     parameters like in sport we would like like to choose the
     type of sport or in studying the faculty.
     */
-    virtual void set_basic_parameters();
+    virtual void start_new_activity();
     
     // getters and setter
-    void set_id();
+    void set_id();               // TODO - figure out way to create uniqe id for every new object
     void set_name(string name);
     void set_time_goal(int time_goal_in_min);
     

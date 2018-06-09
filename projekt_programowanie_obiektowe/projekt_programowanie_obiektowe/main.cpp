@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include "Activity.hpp"
+#include <limits>
 
 
 int main(int argc, const char * argv[]) {
@@ -26,7 +27,7 @@ int main(int argc, const char * argv[]) {
         
         option = 0;
         
-        cout << "Select action to perform:" << endl;
+        cout << endl << "Select action to perform:" << endl;
         cout << "1. Start new Activity" << endl;
         cout << "2. View last three completed activitys" << endl;
         cout << "3. Something" << endl;
@@ -37,11 +38,15 @@ int main(int argc, const char * argv[]) {
         
         switch (option) {
             case 1:
+                // Add activity to 'activitys' vector
+                // a new Activity object is created
                 activity_number++;
                 activitys.resize(activity_number);
                 break;
                 
             case 2:
+                // loop through 'activitys' vector and
+                // return activitys names
                 for (int i = 0; i < 3 || i < activitys.size(); i++) {
                     cout << activitys[i].get_name() << endl;
                 }

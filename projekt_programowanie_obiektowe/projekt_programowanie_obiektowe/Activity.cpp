@@ -9,31 +9,42 @@
 #include "Activity.hpp"
 #include <iostream>
 #include <string>
+#include <limits>
+
 
 using namespace std;
 
 Activity::Activity() {
-    this -> set_basic_parameters();
+    this -> start_new_activity();
 }
 
 Activity::~Activity() {
     
 }
 
-void Activity::set_basic_parameters() {
-    string n; // name of activity
-    int t = 0; // time goal
+void Activity::start_new_activity() {
+    char input[100]; // name of activity
+    int t = 0;       // time goal
     
     this -> set_id();
     
     cout << "Name of activity: ";
-    cin >> n;
+    cin.ignore();
+    cin.getline(input, 100);
     
-    cout << "Set time goal in minutes (optional, you can leave this empty): ";
+    cout << "Set time goal in minutes (optional, you can leave this empty): ";  // TODO - you can't leave this empty
     cin >> t;
     
-    set_name(n);
+    set_name(input);
     set_time_goal(t);
+    
+    cout << "Press ENTER to start timer...";
+    cin.ignore();
+    cin.get();
+    
+    start_time();
+    cout << "Timer started!" << endl;
+    
 }
 
 /* **************** SETTERS **************** */
