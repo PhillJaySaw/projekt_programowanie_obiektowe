@@ -9,6 +9,7 @@
 #include "Activity.hpp"
 #include <iostream>
 #include <string>
+#include "timer.hpp"
 
 using namespace std;
 
@@ -21,8 +22,9 @@ Activity::~Activity() {
 }
 
 void Activity::start_new_activity() {
-    char input[100]; // name of activity
-    int t = 0;       // time goal
+    char comment[100];   // activity comment
+    char input[100];    // name of activity
+    int t = 0;          // time goal
     
     this -> set_id();
     
@@ -40,8 +42,14 @@ void Activity::start_new_activity() {
     cin.ignore();
     cin.get();
     
-    start_time();
     cout << "Timer started!" << endl;
+    activity_time = timer();
+    
+    cout << "Activity finished!" << "Time: " << activity_time/60 << " minutes" << endl;
+    cout << "Write comment: " << endl;
+    
+    cin.ignore();
+    cin.getline(comment, 100);
     
 }
 
@@ -73,7 +81,7 @@ string Activity::get_name() {
     return this -> name;
 }
 
-int Activity::get_activity_time() {
+double Activity::get_activity_time() {
     return activity_time;
 }
 
@@ -81,16 +89,5 @@ string Activity::get_comment() {
     return comment;
 }
 
-/* **************** TIMER **************** */
+/* **************** FUNCTIONS **************** */
 
-void Activity::start_time() {
-    
-}
-
-void Activity::stop_time() {
-    
-}
-
-void Activity::pause_time() {
-    
-}

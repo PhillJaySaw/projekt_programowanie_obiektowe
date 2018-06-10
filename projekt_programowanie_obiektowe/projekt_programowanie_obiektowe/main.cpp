@@ -39,6 +39,7 @@ int main(int argc, const char * argv[]) {
             case 1:
                 // Add activity to 'activitys' vector
                 // a new Activity object is created
+                // and the constructor of activity is triggered
                 activity_number++;
                 activitys.resize(activity_number);
                 break;
@@ -46,8 +47,8 @@ int main(int argc, const char * argv[]) {
             case 2:
                 // loop through 'activitys' vector and
                 // return activitys names
-                for (int i = 0; i < 3 || i < activitys.size(); i++) {
-                    cout << activitys[i].get_name() << endl;
+                for (int i = 0; i < activitys.size() && i < 3; i++) {
+                    cout << "Activity name: " << activitys[i].get_name() << endl << "Activity time: " << activitys[i].get_activity_time()/60 << endl << endl;
                 }
                 break;
                 

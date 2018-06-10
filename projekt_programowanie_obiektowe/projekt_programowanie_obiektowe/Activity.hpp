@@ -16,11 +16,10 @@ class Activity {
     static int activity_id;
     string name;                // name of the activity
     int type_id;                // activity type id
-    int start;                  // starting time of activity
-    int end;                    // end time of activity
     int time_goal_in_minutes;
-    int activity_time;          // stores the final activity time
+    double activity_time;       // stores the final activity time in seconds
     string comment;
+    
     
 public:
     
@@ -44,16 +43,8 @@ public:
     
     int get_id();
     string get_name();
-    int get_activity_time();
+    double get_activity_time();
     string get_comment();
-    
-    // time recording functions
-    void start_time();
-    void stop_time();
-    void resume_time();
-    void pause_time();
-    
-    void cancle_activity();
 };
 
 #endif /* Activity_h */
