@@ -9,6 +9,7 @@
 #include "Activity.hpp"
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include "timer.hpp"
 
 using namespace std;
@@ -43,9 +44,9 @@ void Activity::start_new_activity() {
     cin.get();
     
     cout << "Timer started!" << endl;
-    activity_time = timer();
+    this -> set_activity_time(timer());
     
-    cout << "Activity finished!" << "Time: " << activity_time/60 << " minutes" << endl;
+    cout << "Activity finished!" << "Time: " << std::setprecision(2) << activity_time/60 << " minutes" << endl;
     cout << "Write comment: " << endl;
     
     cin.ignore();
@@ -69,6 +70,10 @@ void Activity::set_time_goal(int time_goal_in_minutes = 0) {
 
 void Activity::add_comment(string comment) {
     this -> comment.append(comment);
+}
+
+void Activity::set_activity_time(double activity_time) {
+    this -> activity_time = activity_time;
 }
 
 /* **************** GETTERS **************** */

@@ -22,10 +22,6 @@ class Activity {
     
     
 public:
-    
-    Activity();
-    ~Activity(); 
-    
     /*
     this function will be executed in the constructor,
     each activity type has some additional starting
@@ -34,10 +30,14 @@ public:
     */
     virtual void start_new_activity();
     
+    Activity();
+    ~Activity();
+    
     // getters and setter
     void set_id();               // TODO - figure out way to create uniqe id for every new object
     void set_name(string name);
     void set_time_goal(int time_goal_in_min);
+    void set_activity_time(double activity_time);
     
     void add_comment(string comment);
     
