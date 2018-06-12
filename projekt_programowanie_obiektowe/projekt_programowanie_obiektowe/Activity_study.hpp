@@ -11,7 +11,8 @@
 #include "Activity.hpp"
 
 class Activity_study : public Activity {
-    
+public:
+    void start_new_activity();
 };
 
 #endif /* Activity_study_h */

@@ -45,6 +45,8 @@ public:
     string get_name();
     double get_activity_time();
     string get_comment();
+    
+    virtual void print();
 };
 
 #endif /* Activity_h */

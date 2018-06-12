@@ -18,6 +18,8 @@ public:
     void start_new_activity();
     void set_performance(int performance);
     void performance_prompt();
+    int get_performance();
+    void print();
 };
 
 #endif /* Activity_sport_h */

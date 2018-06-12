@@ -19,13 +19,13 @@ double timer(int time_goal) {
     
     while (true) {
         cout << "Options:" << endl;
-        cout << "(pause) activity" << endl;
-        cout << "(finish) activity" << endl;
-        cout << "(cancle) activity" << endl;
+        cout << "(p)ause" << endl;
+        cout << "(f)inish" << endl;
+        cout << "(c)ancle" << endl;
         
         cin >> option;
         
-        if(option == "pause") {
+        if(option == "p") {
             //this -> stop_time();
             auto stop = std::chrono::steady_clock::now();
             elapsed_time += double (std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count());
@@ -35,13 +35,13 @@ double timer(int time_goal) {
             //this -> start_time();
             start = std::chrono::steady_clock::now();
             
-        } else if (option == "finish") {
+        } else if (option == "f") {
             //this -> stop_time();
             auto stop = std::chrono::steady_clock::now();
             elapsed_time += double (std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count());
             return elapsed_time / 1e9;
             
-        } else if (option == "cancle") {
+        } else if (option == "c") {
             elapsed_time = 0;
             return elapsed_time;
         }

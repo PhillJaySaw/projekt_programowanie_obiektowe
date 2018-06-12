@@ -18,11 +18,11 @@
 
 int main(int argc, const char * argv[]) {
     
-    vector<Activity> activitys;             // stores all activity object
-    vector<Activity_sport> activitys_sport;
-    vector<Activity_study> activitys_study;
-    vector<Activity_hobby> activitys_hobby;
-    vector<Activity_video_games> activity_video_games;
+    vector<Activity*> activitys;             // stores all activity objects
+    //vector<Activity_sport> activitys_sport;
+    //vector<Activity_study> activitys_study;
+    //vector<Activity_hobby> activitys_hobby;
+    //vector<Activity_video_games> activity_video_games;
     
     int option;                     // used for selecting actions in main loop
     int option_act_type;            // used for selecting activity type
@@ -62,15 +62,19 @@ int main(int argc, const char * argv[]) {
                 
                 switch (option_act_type) {
                     case 1:
-                        activitys_sport.resize(activitys_sport.size()+1);
-                        activitys_sport.back().start_new_activity();
+                    {
+                        Activity_sport *act_sport = new Activity_sport();
+                        activitys.push_back(act_sport);
+                        activitys.back()->start_new_activity();
                         break;
-                        
+                    }
                     case 2:
-                        activitys.resize(activitys.size()+1);
-                        activitys.back().start_new_activity();
+                    {
+                        Activity *act = new Activity();
+                        activitys.push_back(act);
+                        activitys.back()->start_new_activity();
                         break;
-                        
+                    }
                     default:
                         break;
                 }
@@ -80,12 +84,9 @@ int main(int argc, const char * argv[]) {
             case 2:
                 // loop through 'activitys' vector and
                 // return activitys names
-                for (int i = 0; i < activitys.size() && i < 3; i++) {
-                    cout << "Activity name: " << activitys[i].get_name() << endl << "Activity time: " << std::setprecision(2) << activitys[i].get_activity_time()/60 << endl << endl;
-                }
-                
-                for (int i = 0; i < activitys_sport.size() && i < 3; i++) {
-                    cout << "Workout name: " << activitys_sport[i].get_name() << endl << "Activity time: " << std::setprecision(2) << activitys_sport[i].get_activity_time()/60 << endl << endl;
+                for (unsigned long i = activitys.size() - 1, j = 0; j < 3 ; i--, j++) {
+                    activitys[i] -> print();
+                    if(!i) break;
                 }
                 break;
                 
@@ -98,5 +99,29 @@ int main(int argc, const char * argv[]) {
         }
     }
     
+
+    // string Activity::serialize() // toString
+    //zapis : przeiterowac po wszystkich i zapisac do pliku linie serialize()
+    
+    //static Activity* Activity::createFromString(string description)
+    //
+     //  description
+   /// type = parse(desc) ,    if (type == sport) return new Activity_sport(nazwa,czas,perf,...)
+     //   activitys.push_back(Activity::createFromstring(...))
+    
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

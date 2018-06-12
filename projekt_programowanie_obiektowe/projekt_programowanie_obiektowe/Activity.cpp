@@ -14,13 +14,9 @@
 
 using namespace std;
 
-Activity::Activity() {
-    
-}
+Activity::Activity() {}
 
-Activity::~Activity() {
-    
-}
+Activity::~Activity() {}
 
 void Activity::start_new_activity() {
     char comment[100];      // activity comment
@@ -78,10 +74,6 @@ void Activity::set_activity_time(double activity_time) {
 
 /* **************** GETTERS **************** */
 
-//int Activity::get_id() {
-//    return this -> activity_id;
-//}
-
 string Activity::get_name() {
     return this -> name;
 }
@@ -92,6 +84,10 @@ double Activity::get_activity_time() {
 
 string Activity::get_comment() {
     return comment;
+}
+
+void Activity::print() {
+    cout << "Activity name: " << this -> get_name() << endl << "Activity time: " << std::setprecision(2) << this -> get_activity_time()/60 << endl << endl;
 }
 
 /* **************** FUNCTIONS **************** */

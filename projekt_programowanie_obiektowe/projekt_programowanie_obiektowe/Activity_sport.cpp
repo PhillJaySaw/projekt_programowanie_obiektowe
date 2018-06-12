@@ -64,3 +64,18 @@ void Activity_sport::performance_prompt() {
         } else this -> set_performance(input_performance);
     }
 }
+
+int Activity_sport::get_performance() {
+    return this -> performance;
+}
+
+void Activity_sport::print() {
+    cout << "Workout name: " << this -> get_name() << endl << "Workout time: " << std::setprecision(2) << this -> get_activity_time()/60 << endl << "Performance: " << this -> get_performance() << "/5"<< endl << endl;
+}
+
+
+
+
+
+
+
