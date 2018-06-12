@@ -24,9 +24,6 @@ int main(int argc, const char * argv[]) {
     vector<Activity_hobby> activitys_hobby;
     vector<Activity_video_games> activity_video_games;
     
-    
-    int activity_number = 0;        // stores amount of activities
-    int activity_sport_number = 0;
     int option;                     // used for selecting actions in main loop
     int option_act_type;            // used for selecting activity type
     
@@ -65,13 +62,13 @@ int main(int argc, const char * argv[]) {
                 
                 switch (option_act_type) {
                     case 1:
-                        activity_sport_number++;
-                        activitys_sport.resize(activity_sport_number);
+                        activitys_sport.resize(activitys_sport.size()+1);
+                        activitys_sport.back().start_new_activity();
                         break;
                         
                     case 2:
-                        activity_number++;
-                        activitys.resize(activity_number);
+                        activitys.resize(activitys.size()+1);
+                        activitys.back().start_new_activity();
                         break;
                         
                     default:

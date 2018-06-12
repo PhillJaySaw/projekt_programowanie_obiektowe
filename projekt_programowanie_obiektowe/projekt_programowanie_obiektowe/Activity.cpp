@@ -15,7 +15,7 @@
 using namespace std;
 
 Activity::Activity() {
-    this -> start_new_activity();
+    
 }
 
 Activity::~Activity() {
@@ -23,9 +23,9 @@ Activity::~Activity() {
 }
 
 void Activity::start_new_activity() {
-    char comment[100];   // activity comment
-    char input[100];    // name of activity
-    int t = 0;          // time goal
+    char comment[100];      // activity comment
+    char input[100];        // name of activity
+    int t = 0;              // time goal
     
     this -> set_id();
     

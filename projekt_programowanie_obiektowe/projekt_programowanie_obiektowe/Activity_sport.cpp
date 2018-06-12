@@ -37,8 +37,7 @@ void Activity_sport::start_new_activity() {
     cout << "Timer started!" << endl;
     this -> set_activity_time(timer());
     
-    cout << "Workout finished!" << "Time: " << std::setprecision(2) << get_activity_time()  /60 << " minutes" << endl;
-    cout << "Set workout performance: " << endl;
+    cout << "Workout finished! " << "Time: " << std::setprecision(2) << get_activity_time()  /60 << " minutes" << endl;
     this -> performance_prompt();
     
     cout << "Write comment: " << endl;
@@ -60,7 +59,7 @@ void Activity_sport::performance_prompt() {
         cin >> input_performance;
         
         if(input_performance > 5 || input_performance < 1) {
-            cout << "Entered number MUST be on a scale from 1 to 5.";
+            cout << "Entered number MUST be on a scale from 1 to 5." << endl;
             input_performance = 0;
         } else this -> set_performance(input_performance);
     }
