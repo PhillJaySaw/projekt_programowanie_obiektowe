@@ -22,7 +22,7 @@ void Activity::start_new_activity() {
     char comment[100];      // activity comment
     char input[100];        // name of activity
     int t = 0;              // time goal
-    
+    this -> set_type_name("custom");
     this -> set_id();
     
     cout << "Name of activity: ";
@@ -72,10 +72,14 @@ void Activity::set_activity_time(double activity_time) {
     this -> activity_time = activity_time;
 }
 
+void Activity::set_type_name(string type_name) {
+    this -> type_name = type_name;
+}
+
 /* **************** GETTERS **************** */
 
 string Activity::get_name() {
-    return this -> name;
+    return name;
 }
 
 double Activity::get_activity_time() {
@@ -84,6 +88,10 @@ double Activity::get_activity_time() {
 
 string Activity::get_comment() {
     return comment;
+}
+
+string Activity::get_type() {
+    return type_name;
 }
 
 void Activity::print() {

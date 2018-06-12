@@ -11,7 +11,8 @@
 #include "Activity.hpp"
 
 class Activity_video_games : public Activity {
-    
+public:
+    void start_new_activity();
 };
 
 

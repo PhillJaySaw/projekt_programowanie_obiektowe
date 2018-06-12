@@ -15,7 +15,7 @@ using namespace std;
 class Activity {
     static int activity_id;
     string name;                // name of the activity
-    int type_id;                // activity type id
+    string type_name;    // activity type
     int time_goal_in_minutes;
     double activity_time;       // stores the final activity time in seconds
     string comment;
@@ -38,6 +38,7 @@ public:
     void set_name(string name);
     void set_time_goal(int time_goal_in_min);
     void set_activity_time(double activity_time);
+    void set_type_name(string type_name);
     
     void add_comment(string comment);
     
@@ -45,6 +46,7 @@ public:
     string get_name();
     double get_activity_time();
     string get_comment();
+    string get_type();
     
     virtual void print();
 };

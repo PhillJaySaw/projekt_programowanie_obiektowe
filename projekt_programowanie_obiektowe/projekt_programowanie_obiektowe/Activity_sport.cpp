@@ -17,7 +17,7 @@ void Activity_sport::start_new_activity() {
     char comment[100];      // activity comment
     char input[100];        // name of activity
     int t = 0;              // time goal
-    
+    this -> set_type_name("sport");
     this -> set_id();
     
     cout << "Name of workout: ";
