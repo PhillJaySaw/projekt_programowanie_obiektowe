@@ -10,11 +10,15 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <fstream>
 #include "timer.hpp"
+#include <chrono>
 
 using namespace std;
 
-Activity::Activity() {}
+Activity::Activity() {
+    creation_date = time(0);
+}
 
 Activity::~Activity() {}
 
@@ -76,27 +80,65 @@ void Activity::set_type_name(string type_name) {
     this -> type_name = type_name;
 }
 
+
+
 /* **************** GETTERS **************** */
 
-string Activity::get_name() {
+string Activity::get_name() const {
     return name;
 }
 
-double Activity::get_activity_time() {
+double Activity::get_activity_time() const {
     return activity_time;
 }
 
-string Activity::get_comment() {
+string Activity::get_comment() const {
     return comment;
 }
 
-string Activity::get_type() {
+string Activity::get_type() const{
     return type_name;
 }
 
 void Activity::print() {
     cout << "Activity name: " << this -> get_name() << endl << "Activity time: " << std::setprecision(2) << this -> get_activity_time()/60 << endl << endl;
 }
+
+time_t Activity::get_creation_date() const {
+    return creation_date;
+}
+
+/* **************** SERIALIZATION **************** */
+
+
+std::ostream& operator<<(std::ostream& os, const Activity* s) {
+    
+    os << s -> get_name() << '\n';
+    os << s -> get_type() << '\n';
+    os << s -> get_activity_time() << '\n';
+    //os << s -> get_comment();
+    return os;
+}
+
+istream& operator>>(istream& is, Activity* s) {
+        is >> s -> name;
+        is >> s -> type_name;
+        is >> s -> activity_time;
+    
+    return is;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* **************** FUNCTIONS **************** */
 

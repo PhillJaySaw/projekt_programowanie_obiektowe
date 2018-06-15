@@ -9,17 +9,20 @@
 #ifndef Activity_h
 #define Activity_h
 #include <string>
+#include <chrono>
+#include <ctime>
+
 
 using namespace std;
 
 class Activity {
     static int activity_id;
+    time_t creation_date;
     string name;                // name of the activity
-    string type_name;    // activity type
+    string type_name;           // activity type
     int time_goal_in_minutes;
     double activity_time;       // stores the final activity time in seconds
     string comment;
-    
     
 public:
     /*
@@ -39,16 +42,24 @@ public:
     void set_time_goal(int time_goal_in_min);
     void set_activity_time(double activity_time);
     void set_type_name(string type_name);
+    void set_creation_date(chrono::steady_clock::time_point date);
     
     void add_comment(string comment);
     
-    int get_id();
-    string get_name();
-    double get_activity_time();
-    string get_comment();
-    string get_type();
+    int get_id() const;
+    string get_name() const;
+    double get_activity_time() const;
+    string get_comment() const;
+    string get_type() const;
+    time_t get_creation_date() const;
+    //string print_creation_date() const;
     
     virtual void print();
+    
+    // serialize & deserialize
+    
+    friend std::ostream& operator<<(std::ostream& os, const Activity* s);
+    friend std::istream& operator>>(std::istream& is, Activity* s);
 };
 
 #endif /* Activity_h */
